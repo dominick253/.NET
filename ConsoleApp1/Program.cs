@@ -197,21 +197,20 @@ int[] student3 = { 90, 85, 87, 98, 68, 89, 89, 89 };
 int[] student4 = { 90, 95, 87, 88, 96, 96 };
 
 string[] names = { "Sophia", "Andrew", "Emma", "Logan" };
-string name = "";
 string letter = "";
 
 
 //make a nested array of all the students grades
 int[][] grades = new int[][] { student1, student2, student3, student4 };
 
-Console.WriteLine("Student\t\tGrade");
+Console.WriteLine("Student\t\tOverall Grade\tExam Grade\tExtra Credit Grade");
 
 //call the function with each array as input.
 for (int i = 0; i < grades.Length; i++)
 {
-    name = names[i];
+    string name = names[i];
     var (Average, OverallGrade, ExtraCreditGrade) = getAverageGrade(grades[i]);
-   
+
     if (Average >= 97)
     {
         letter = "A+";
@@ -264,7 +263,7 @@ for (int i = 0; i < grades.Length; i++)
     {
         letter = "F";
     }
-    Console.WriteLine($"{name}:\t\t{Average}\t{letter}\t{OverallGrade}\t{ExtraCreditGrade}");
+    Console.WriteLine($"{name}:\t\t{OverallGrade}\t{letter}\t{Average}\t\t{ExtraCreditGrade}");
 
 }
 
@@ -275,10 +274,10 @@ static (double Average, double OverallGrade, double ExtraCreditGrade) getAverage
 {
     int numOfExtraAssignments = 0;
     int regularGrade = 0;
-    int extraCreditGrade = 0; 
+    int extraCreditGrade = 0;
     int counter = 0;
     double sumOfRegAndExtraCredit = 0;
-    //if over 5 grades grade at 10% value.
+    
     foreach (int grade in grades)
     {
         if (counter < 5)
