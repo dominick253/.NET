@@ -209,87 +209,95 @@ Console.WriteLine("Student\t\tGrade");
 //call the function with each array as input.
 for (int i = 0; i < grades.Length; i++)
 {
-
     name = names[i];
-    double average = getAverageGrade(grades[i]);
-
-
-    if (average >= 97)
+    var (Average, OverallGrade, ExtraCreditGrade) = getAverageGrade(grades[i]);
+   
+    if (Average >= 97)
     {
         letter = "A+";
     }
-    else if (average >= 93)
+    else if (Average >= 93)
     {
         letter = "A";
     }
-    else if (average >= 90)
+    else if (Average >= 90)
     {
         letter = "A-";
     }
-    else if (average >= 87)
+    else if (Average >= 87)
     {
         letter = "B+";
     }
-    else if (average >= 83)
+    else if (Average >= 83)
     {
         letter = "B";
     }
-    else if (average >= 80)
+    else if (Average >= 80)
     {
         letter = "B-";
     }
-    else if (average >= 77)
+    else if (Average >= 77)
     {
         letter = "C+";
     }
-    else if (average >= 73)
+    else if (Average >= 73)
     {
         letter = "C";
     }
-    else if (average >= 70)
+    else if (Average >= 70)
     {
         letter = "C-";
     }
-    else if (average >= 67)
+    else if (Average >= 67)
     {
         letter = "D+";
     }
-    else if (average >= 63)
+    else if (Average >= 63)
     {
         letter = "D";
     }
-    else if (average >= 60)
+    else if (Average >= 60)
     {
         letter = "D-";
     }
-    else if (average < 60)
+    else if (Average < 60)
     {
         letter = "F";
     }
-    Console.WriteLine($"{name}:\t\t{average}\t{letter} ");
+    Console.WriteLine($"{name}:\t\t{Average}\t{letter}\t{OverallGrade}\t{ExtraCreditGrade}");
 
 }
 
 Console.WriteLine("Press Enter to continue");
 // Console.ReadLine();
 
-static double getAverageGrade(int[] grades)
+static (double Average, double OverallGrade, double ExtraCreditGrade) getAverageGrade(int[] grades)
 {
+    int numOfExtraAssignments = 0;
+    int regularGrade = 0;
+    int extraCreditGrade = 0; 
     int counter = 0;
-    double sum = 0;
+    double sumOfRegAndExtraCredit = 0;
     //if over 5 grades grade at 10% value.
     foreach (int grade in grades)
     {
         if (counter < 5)
         {
-            sum += grade;
+            sumOfRegAndExtraCredit += grade;
+            regularGrade += grade;
         }
         else
         {
-            sum += grade / 10;
+            sumOfRegAndExtraCredit += grade / 10;
+            extraCreditGrade += grade;
+            numOfExtraAssignments++;
         }
         counter++;
     }
-    return sum / 5;
+
+    double OverallGrade = sumOfRegAndExtraCredit / 5;
+    double Average = regularGrade / 5;
+    double ExtraCreditGrade = extraCreditGrade / numOfExtraAssignments;
+    return (Average, OverallGrade, ExtraCreditGrade);
 }
 
