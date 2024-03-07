@@ -421,27 +421,110 @@
 
 
 
-int[] numbers = { 4, 8, 15, 16, 23, 42 };
-int total = 0;
-bool found = false;
+// int[] numbers = { 4, 8, 15, 16, 23, 42 };
+// int total = 0;
+// bool found = false;
 
-foreach (int number in numbers)
-{
+// foreach (int number in numbers)
+// {
 
-    total += number;
+//     total += number;
 
-    if (number == 42)
-    {
-        found = true;
+//     if (number == 42)
+//     {
+//         found = true;
 
-    }
+//     }
 
-}
+// }
 
-if (found)
-{
-    Console.WriteLine("Set contains 42");
+// if (found)
+// {
+//     Console.WriteLine("Set contains 42");
 
-}
+// }
 
-Console.WriteLine($"Total: {total}");
+// Console.WriteLine($"Total: {total}");
+
+// string str = "apple";
+
+
+// switch (str) 
+// {
+//     case "apple":
+//         Console.WriteLine($"App will display information for apple.");
+//         break;
+//     case "banana":
+//         Console.WriteLine($"App will display information on banana.");
+//         break;
+//     case "cherry":
+//         Console.WriteLine($"App will display information for cherry.");
+//         break;
+// }
+
+
+// int employeeLevel = 100;
+// string employeeName = "John Smith";
+// string title = "";
+
+// switch (employeeLevel)
+// {   
+//     case 100:
+//         // title = "Junior Associate";
+//         // break;
+//     case 200:
+//         title = "Senior Associate";
+//         break;
+//     case 300:
+//         title = "Manager";
+//         break;
+//     case 400:
+//         title = "Senior Manger";
+//         break;
+//     default:
+//         title = "Associate";
+//         break;
+// }
+
+// Console.WriteLine($"{employeeName}, {title}");
+
+
+
+// SKU = Stock Keeping Unit. 
+// SKU value format: <product #>-<2-letter color code>-<size code>
+// string sku = "01-MN-L";
+
+// string[] product = sku.Split('-');
+
+// string type = "";
+// string color = "";
+// string size = "";
+
+// type = product[0] switch
+// {
+//     "01" => "Sweat shirt",
+//     "02" => "T=Shirt",
+//     "03" => "Sweat pants",
+//     _ => "Other",
+// };
+
+// color = product[1] switch
+// {
+//     "BL" => "Black",
+//     "MN" => "Maroon",
+//     _ => "White",
+// };
+
+// size = product[2] switch
+// {
+//     "S" => "Small",
+//     "M" => "Medium",
+//     "L" => "Large",
+//     _ => "One Size Fits All",
+// };
+
+// Console.WriteLine($"Product: {size} {color} {type}");
+
+
+
+
