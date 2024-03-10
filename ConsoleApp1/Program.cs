@@ -527,4 +527,128 @@
 
 
 
+// for (int i = 10; i > 0; i -= 3)
+// {
+//     Console.WriteLine(i);
+//     if (i == 4) break;
+// }
 
+
+
+// string[] names = { "Alex", "Eddie", "David", "Michael" };
+
+// for (int i = 0; i < names.Length; i++)
+// {
+//     if (names[i] == "David")
+//     {
+//         names[i] = "Sammy";
+//     }
+// }
+
+
+// foreach (var name in names)
+// {
+//     Console.WriteLine(name);
+// }
+
+
+
+
+// using System.Formats.Asn1;
+
+// int val = 0;
+
+// for (int i = 1; i <= 100; i++)
+// {
+//     if (i % 3 == 0 && i % 5 == 0)
+//     {
+//         Console.WriteLine($"{i} - FizzBuzz");
+//     }
+//     else if (i % 3 == 0)
+//     {
+//         Console.WriteLine($"{i} - Fizz");
+//     }
+//     else if (i % 5 == 0)
+//     {
+//         Console.WriteLine($"{i} - Buzz");
+//     }
+//     else
+//     {
+//         Console.WriteLine(i);
+//     }
+
+// }
+
+
+
+// do 
+// {
+//     Console.WriteLine("Hello");
+// } while (Console.ReadKey(true).Key != ConsoleKey.Q);
+
+
+// Random rnd = new Random();
+
+// int current = rnd.Next(1,11);
+
+// // do 
+// // {
+// //     current = rnd.Next(1,11);
+// //     Console.WriteLine(current);
+
+// // }  while (current < 11) ;
+
+
+// while (current >= 3)
+// {
+//     Console.WriteLine(current);
+//     current = rnd.Next(1, 11);
+// }
+// Console.WriteLine($"Last number: {current}");
+
+
+// Random rnd = new Random();
+
+// int current = rnd.Next(1,11);
+
+// do{
+//     current = rnd.Next(1,11);
+
+//     if (current >= 3 ) continue;
+
+//     Console.WriteLine(current);
+
+// } while (current != 7);
+
+
+
+// int heroScore = 10;
+
+// int badGuyScore = 10;
+
+// Random rnd = new Random();
+
+// do
+// {
+//     int heroDamage = rnd.Next(1, 11);
+//     int badGuyDamage = rnd.Next(1, 11);
+
+//     Console.WriteLine($"Hero Health: {heroScore}\nBadguy Health: {badGuyScore}");
+
+//     heroScore -= heroDamage;
+//     badGuyScore -= badGuyDamage;
+
+//     Console.WriteLine($"Hero Damage taken: {heroDamage}");
+//     Console.WriteLine($"Badguy Damage taken: {badGuyDamage}");
+
+// } while (heroScore > 0 && badGuyScore > 0);
+
+// if (heroScore <= 0)
+// {
+//     Console.WriteLine($"BadGuy Won!\nBadGuy Health: {badGuyScore}\nGoodGuy Health: {heroScore}");
+
+// }
+// else
+// {
+//     Console.WriteLine($"GoodGuy Won!\nGoodGuy Health: {heroScore}\nBadGuy Health: {badGuyScore}");
+// }
