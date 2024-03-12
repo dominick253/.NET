@@ -799,7 +799,7 @@ for (int i = 0; i < maxPets; i++)
         case 3:
             animalSpecies = "cat";
             animalID = "c4";
-            animalAge = "?";
+            animalAge = "";
             animalPhysicalDescription = "";
             animalPersonalityDescription = "";
             animalNickname = "";
@@ -853,6 +853,7 @@ do
         case "1":
             for (int i = 0; i < maxPets; i++)
             {
+                Console.WriteLine();
                 for (int j = 0; j < 6; j++)
                 {
                     //filter empty entries
@@ -904,7 +905,6 @@ do
                 personalityOfPetToAdd = Console.ReadLine();
 
                 // add one to animalCount so we can add the next pet to the next availavle position.
-                
                 animalCount++;
                 int index = animalCount - 1;
 
@@ -931,6 +931,100 @@ do
 
                     Console.WriteLine("Would you like to add another pet? y or n");
                     anotherPet = Console.ReadLine();
+                }
+            }
+            break;
+
+        case "3":
+            for (int i = 0; i < maxPets; i++)
+            {
+                //filter empty entries
+                if (ourAnimals[i, 0] != "ID #: ")
+                {
+                    if (ourAnimals[i, 2] == "Age: " || ourAnimals[i, 4] == "Physical description: ")
+                    {
+                        Console.WriteLine(
+                            $"Animal {ourAnimals[i, 0]} has incomplete age or physical description."
+                        );
+                    }
+                }
+            }
+            Console.WriteLine("Scan Complete.");
+            break;
+
+        case "4":
+            for (int i = 0; i < maxPets; i++)
+            {
+                //filter empty entries
+                if (ourAnimals[i, 0] != "ID #: ")
+                {
+                    if (ourAnimals[i, 3] == "Nickname: " || ourAnimals[i, 5] == "Personality: ")
+                    {
+                        Console.WriteLine(
+                            $"Animal {ourAnimals[i, 0]} has incomplete name or personality description."
+                        );
+                    }
+                }
+            }
+            Console.WriteLine("Scan Complete.");
+            break;
+
+        case "5":
+            Console.WriteLine("Enter the animal id to edit the age.");
+            string? animalIdToEditAge = Console.ReadLine();
+            Console.WriteLine("Enter new age.");
+            string? newAge = Console.ReadLine();
+
+            for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i, 0] == "ID #: " + animalIdToEditAge)
+                {
+                    ourAnimals[i, 2] = "Age: " + newAge;
+                }
+            }
+
+            break;
+
+        case "6":
+            Console.WriteLine("Enter the animal id to edit personality.");
+            animalIdToEditAge = Console.ReadLine();
+            Console.WriteLine("Enter new personality description.");
+            string? newPersonality = Console.ReadLine();
+
+            for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i, 0] == "ID #: " + animalIdToEditAge)
+                {
+                    ourAnimals[i, 5] = "Personality: " + newPersonality;
+                }
+            }
+
+            break;
+
+        case "7":
+            Console.WriteLine("Listing of all cats");
+            for (int i = 0; i < maxPets; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    if (ourAnimals[i, 0] != "ID #: " && ourAnimals[i, 1] == "Species: cat")
+                    {
+                        Console.WriteLine(ourAnimals[i, j]);
+                    }
+                }
+            }
+            break;
+
+        case "8":
+            Console.WriteLine("Listing of all dogs");
+            for (int i = 0; i < maxPets; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    if (ourAnimals[i, 0] != "ID #: " && ourAnimals[i, 1] == "Species: dog")
+                    {
+                        Console.WriteLine(ourAnimals[i, j]);
+                    }
                 }
             }
             break;
