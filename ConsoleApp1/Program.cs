@@ -752,6 +752,7 @@ string? catOrDog;
 string? descriptionOfPetToAdd;
 string? personalityOfPetToAdd;
 string? age;
+string anotherPet = "y";
 
 // array used to store runtime data, there is no persisted data
 string[,] ourAnimals = new string[maxPets, 6];
@@ -821,20 +822,13 @@ for (int i = 0; i < maxPets; i++)
     ourAnimals[i, 4] = "Physical description: " + animalPhysicalDescription;
     ourAnimals[i, 5] = "Personality: " + animalPersonalityDescription;
 }
-for (int i = 0; i < maxPets; i++)
-{
-    if (ourAnimals[i, 0] != "ID #: ")
-    {
-        animalCount++;
-    }
-}
 
 // display the top-level menu options
 do
 {
     Console.Clear();
 
-    string anotherPet = "y";
+    anotherPet = "y";
 
     Console.WriteLine("Welcome to the Contoso PetFriends app. Your main menu options are:");
     Console.WriteLine(" 1. List all of our current pet information");
@@ -869,19 +863,30 @@ do
             break;
 
         case "2":
-            if ( animalCount < maxPets)
+
+            animalCount = 0;
+
+            //count how many animals are currently up for adoption.
+            for (int i = 0; i < maxPets; i++)
             {
-                Console.WriteLine("Sorry we don't have any more spots available.");
+                if (ourAnimals[i, 0] != "ID #: ")
+                {
+                    animalCount++;
+                }
             }
-            while (anotherPet == "y" && animalCount < maxPets)
+
+            while (anotherPet == "y")
             {
-                
-                    int animalSpacesLeft = maxPets - animalCount;
-                    Console.WriteLine(
-                        $"\nThere are {animalCount} pets up for adoption.\nWe have {animalSpacesLeft} spots left.\n"
-                    );
-                
-               
+                if (animalCount >= maxPets)
+                {
+                    Console.WriteLine("\nSorry we don't have any more spots available.\n");
+                    break;
+                }
+                int animalSpacesLeft = maxPets - animalCount;
+
+                Console.WriteLine(
+                    $"\nThere are {animalCount} pets up for adoption.\nWe have {animalSpacesLeft} spots left.\n"
+                );
 
                 Console.WriteLine("Enter name of pet to add.");
                 animalNameToAdd = Console.ReadLine();
@@ -899,45 +904,35 @@ do
                 personalityOfPetToAdd = Console.ReadLine();
 
                 // add one to animalCount so we can add the next pet to the next availavle position.
-                //also increments the animal count every time a new pet is added.... dual purpose!
+                
                 animalCount++;
+                int index = animalCount - 1;
 
-                if (animalCount < maxPets)
+                if (index <= maxPets)
                 {
+                    if (catOrDog.ToLower() == "dog" || catOrDog.ToLower() == "d")
                     {
-                        if (catOrDog.ToLower() == "dog" || catOrDog.ToLower() == "d")
-                        {
-                            ourAnimals[animalCount, 0] = "ID #: " + "d" + animalCount;
-                        }
-                        else if (catOrDog.ToLower() == "cat")
-                        {
-                            ourAnimals[animalCount, 0] = "ID #: " + "c" + animalCount;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Input not valid. Please enter either cat or dog.");
-                        }
-                        ourAnimals[animalCount, 1] = "Species: " + catOrDog;
-                        ourAnimals[animalCount, 2] = "Age: " + age;
-                        ourAnimals[animalCount, 3] = "Nickname: " + animalNameToAdd;
-                        ourAnimals[animalCount, 4] =
-                            "Physical description: " + descriptionOfPetToAdd;
-                        ourAnimals[animalCount, 5] = "Personality: " + personalityOfPetToAdd;
-
-                        Console.WriteLine("Would you like to add another pet? y or n");
-                        anotherPet = Console.ReadLine();
-                    } else 
-                    {
-                        Console.WriteLine("We are out of spots at the moment.");
+                        ourAnimals[index, 0] = "ID #: " + "d" + (animalCount);
                     }
-                    // if (anotherPet != "y" || anotherPet != "n")
-                    // {
-                    //     Console.WriteLine("Input not valid. Please enter y or n.");
-                    //     anotherPet = Console.ReadLine();
-                    // }
+                    else if (catOrDog.ToLower() == "cat")
+                    {
+                        ourAnimals[index, 0] = "ID #: " + "c" + (animalCount);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Input not valid. Please enter either cat or dog.");
+                    }
+
+                    ourAnimals[index, 1] = "Species: " + catOrDog;
+                    ourAnimals[index, 2] = "Age: " + age;
+                    ourAnimals[index, 3] = "Nickname: " + animalNameToAdd;
+                    ourAnimals[index, 4] = "Physical description: " + descriptionOfPetToAdd;
+                    ourAnimals[index, 5] = "Personality: " + personalityOfPetToAdd;
+
+                    Console.WriteLine("Would you like to add another pet? y or n");
+                    anotherPet = Console.ReadLine();
                 }
             }
-
             break;
 
         default:
