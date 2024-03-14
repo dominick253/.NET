@@ -1096,3 +1096,173 @@
 
 
 
+
+
+
+
+
+
+
+
+// string? menuSelection;
+
+// string dateTime;
+// int age;
+// int height;
+// int weight;
+// int pulse;
+// int bloodPressure;
+
+
+
+// do
+// {
+//     Console.WriteLine(
+//         "\nWelcome to Dominick's Medical Input System!\nHope you are ready to kick ass and heal patients!!! Let's go!!!!\n"
+//     );
+//     Console.WriteLine("1: View all patient");
+//     Console.WriteLine("2: Start new patient intake process");
+//     Console.WriteLine("3: See patientis with incomplete data");
+//     Console.WriteLine("4: Edit Patient data\n");
+
+//     menuSelection = Console.ReadLine();
+// } while (!menuSelection.Equals("exit", StringComparison.CurrentCultureIgnoreCase));
+
+// Console.WriteLine("\nGoodbye :)\nThank you for using Dominick's Medical Input System!!!\n");
+
+
+
+
+
+
+// string first = "second 2";
+// string second = "4";
+
+// int result = int.TryParse(first) + int.TryParse(second);
+// Console.WriteLine(result);
+
+
+
+// decimal myDecimal = 3.14m;
+// Console.WriteLine($"My decimal: {myDecimal}");
+
+// int myInt = (int)myDecimal;
+// Console.WriteLine($"int: {myInt}");
+
+
+// decimal myDecimal = 1.23456789m;
+// float myFloat = (float)myDecimal;
+
+// Console.WriteLine($"Decimal: {myDecimal}");
+// Console.WriteLine($"Float  : {myFloat}");
+
+
+
+
+
+// string val1 = "5";
+// string val2 = "7";
+
+// int result = Convert.ToInt32(val1) * Convert.ToInt32(val2);
+
+// Console.WriteLine(result);
+
+
+
+
+
+// int value = (int)1.5m;
+// Console.WriteLine(value);
+
+// int value2 = Convert.ToInt32(1.5m);
+// Console.WriteLine(value2);
+
+
+
+
+
+
+
+
+// string name = "bob";
+// int nameToInt = 0;
+// if (int.TryParse(name, out nameToInt))
+// {
+//     Console.WriteLine($"Measurement: {nameToInt}");
+// } else
+// {
+//     Console.WriteLine($"Unable to report the measurement.");
+// }
+
+// if (nameToInt > 0)
+// {
+// Console.WriteLine($"Measurment of (w/ offset): {50 + nameToInt}");
+// }
+
+
+
+
+
+
+
+
+
+// string[] values = { "12.3", "45", "ABC", "11", "DEF" };
+// string outString = "";
+// decimal resultDecimal = 0.0m;
+
+// for (int i = 0; i < values.Length; i++)
+// {
+//     decimal outDecimal;
+
+//     if (decimal.TryParse(values[i], out outDecimal))
+//     {
+//         resultDecimal += outDecimal;
+//     }
+//     else
+//     {
+//         outString += values[i];
+//     }
+// }
+
+// Console.WriteLine($"Message : {outString}");
+// Console.WriteLine($"Decimal : {resultDecimal}");
+
+
+
+
+
+
+
+
+
+
+// int value2 = Convert.ToInt32(1.5m);
+
+// int val1 = 12;
+// decimal val2 = 6.2m;
+// float val3 = 4.3f;
+
+
+// decimal val1Decimal = (decimal)val1;
+// decimal val3Decimal = (decimal)val3;
+
+// decimal result1Decimal = val1Decimal /val2;
+// int result1Int = Convert.ToInt32(result1Decimal);
+
+// decimal result2 = val2 /val3Decimal;
+
+// decimal result3 = val3Decimal /val1Decimal;
+// float result3Float = (float)result3;
+
+
+// Console.WriteLine($"Divide val1 by val2, result: {result1Int}");
+
+// Console.WriteLine($"Divide val2 by val3, result: {result2}");
+
+// Console.WriteLine($"Divide val3 by val1, result: {result3Float}");
+
+
+
+
+
