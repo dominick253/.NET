@@ -1358,3 +1358,66 @@
 
 
 
+// string val = "abc123";
+// Console.WriteLine("");
+
+// Console.WriteLine($"Original string: {val}");
+// Console.WriteLine("");
+
+// char[] valArr = val.ToCharArray();
+
+// foreach (char value in valArr)
+//     Console.WriteLine($"ValArr character array: {value}");
+// Console.WriteLine("");
+
+// Array.Reverse(valArr);
+
+// foreach (char value in valArr)
+//     Console.WriteLine($"ValArr character array Reversed: {value}");
+
+// string result = String.Join("", valArr);
+// Console.WriteLine("");
+
+// Console.WriteLine($"Reversed and joined: {result}");
+// Console.WriteLine("");
+
+
+
+
+
+
+
+
+
+
+
+string pangram = "The quick brown fox jumps over the lazy dog";
+
+//split words up into elements in an array
+string[] pangramStrArr = pangram.Split(" ");
+
+//initialize jagged char array to store str arr elements into
+char[][] pangramCharArr = new char[pangramStrArr.Length][];
+
+string[] result = new string[pangramCharArr.Length];
+
+
+//loop through string array and add each word into a char array
+//then reverse the char arrays
+for (int i = 0; i < pangramCharArr.Length; i++)
+{
+    pangramCharArr[i] = pangramStrArr[i].ToCharArray();
+    Array.Reverse(pangramCharArr[i]);
+    // Console.WriteLine(pangramCharArr[i]);
+}
+
+//convert jagged char array back to a regular string
+for (int i = 0; i < pangramCharArr.Length; i++)
+{
+    result[i] = string.Join("", pangramCharArr[i]);
+
+}
+
+string answer = string.Join(" ", result);
+
+Console.WriteLine(answer);
