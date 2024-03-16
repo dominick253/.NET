@@ -1391,33 +1391,188 @@
 
 
 
-string pangram = "The quick brown fox jumps over the lazy dog";
+// string pangram = "The quick brown fox jumps over the lazy dog";
 
-//split words up into elements in an array
-string[] pangramStrArr = pangram.Split(" ");
+// //split words up into elements in an array
+// string[] pangramStrArr = pangram.Split(" ");
 
-//initialize jagged char array to store str arr elements into
-char[][] pangramCharArr = new char[pangramStrArr.Length][];
+// //initialize jagged char array to store str arr elements into
+// char[][] pangramCharArr = new char[pangramStrArr.Length][];
 
-string[] result = new string[pangramCharArr.Length];
+// string[] result = new string[pangramCharArr.Length];
+
+// //loop through string array and add each word into a char array
+// //then reverse the char arrays
+// for (int i = 0; i < pangramCharArr.Length; i++)
+// {
+//     pangramCharArr[i] = pangramStrArr[i].ToCharArray();
+//     Array.Reverse(pangramCharArr[i]);
+//     result[i] = string.Join("", pangramCharArr[i]);
+// }
+
+// string answer = string.Join(" ", result);
+
+// Console.WriteLine(answer);
 
 
-//loop through string array and add each word into a char array
-//then reverse the char arrays
-for (int i = 0; i < pangramCharArr.Length; i++)
-{
-    pangramCharArr[i] = pangramStrArr[i].ToCharArray();
-    Array.Reverse(pangramCharArr[i]);
-    // Console.WriteLine(pangramCharArr[i]);
-}
 
-//convert jagged char array back to a regular string
-for (int i = 0; i < pangramCharArr.Length; i++)
-{
-    result[i] = string.Join("", pangramCharArr[i]);
 
-}
 
-string answer = string.Join(" ", result);
 
-Console.WriteLine(answer);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// using System.ComponentModel;
+
+// string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
+
+// string[] orderStreamArr = orderStream.Split(",");
+
+// Array.Sort(orderStreamArr);
+
+// for (int i = 0; i < orderStreamArr.Length; i++)
+// {
+//     if (orderStreamArr[i].Length != 4)
+//     {
+//         orderStreamArr[i] += "\t- Error";
+//     }
+//     Console.WriteLine(orderStreamArr[i]);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+// decimal price = 123.45m;
+// int discount = 50;
+
+// Console.WriteLine($"Price: {price:C} (Save {discount:C})");
+
+
+
+// decimal measurement = 123456.78912m;
+// Console.WriteLine($"Measurement: {measurement:N4} units");
+
+
+
+// decimal tax = .36785m;
+
+// Console.WriteLine($"Tax rate: {tax:P2}");
+
+
+
+
+
+
+
+// decimal price = 67.55m;
+// decimal salePrice = 59.99m;
+
+// string yourDiscount = String.Format("You saved {0:C2} off the regular {1:C2} price.", (price - salePrice), price);
+
+
+// yourDiscount += $" A discount of {((price -salePrice)/price):P2}";
+// Console.WriteLine(yourDiscount);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// int invoiceNumber = 1201;
+// decimal productShares = 25.4568m;
+// decimal subtotal = 2750.00m;
+// decimal taxPercentage = .15825m;
+// decimal total = 3185.19m;
+
+// Console.WriteLine($"Invoice Number: {invoiceNumber}");
+// Console.WriteLine($"\tShares: {productShares:N3} Product");
+// Console.WriteLine($"\tSub Total: {subtotal:C}");
+// Console.WriteLine($"\tTax: {taxPercentage:P2}");
+// Console.WriteLine($"\tTotal Billed: {total:C}");
+
+
+
+
+// string input = "Pad This";
+// Console.WriteLine(input.PadRight(12, '-'));
+
+
+
+
+
+
+
+
+// string paymentID = "769C";
+// string payeeName = "Mr. Stephen Ortega";
+// string paymentAmount = "$5,000.00";
+
+// var formattedLine = paymentID.PadRight(6);
+// formattedLine += payeeName.PadRight(24);
+// formattedLine += paymentAmount.PadLeft(10);
+
+// Console.WriteLine("1234567890123456789012345678901234567890");
+// Console.WriteLine(formattedLine);
+
+
+
+
+
+string name = "Ms. Barros";
+string currentProduct = "Magic Yield";
+string newProduct = "Glorious Future";
+int amountOwnedShares = 2975000;
+decimal returnPercentage = 0.1275m;
+decimal newReturnPercentage = 0.13125m;
+decimal newProfit = 63000000m;
+decimal profit = 55000000m;
+
+Console.WriteLine($"Dear {name},");
+Console.WriteLine(
+    $"As a customer of our {currentProduct} we are excited to tell you about a new financial product that would dramatically increase your return."
+);
+Console.WriteLine("");
+Console.WriteLine(
+    $"Currently, you own {amountOwnedShares:N2} shares at a return of {returnPercentage:P2}"
+);
+Console.WriteLine("");
+Console.WriteLine($"Our new product, {newProduct} offers a return of {newReturnPercentage:P2}. Given your current volume, your potential profit would be {newProfit:C2}");
+Console.WriteLine("");
+Console.WriteLine("Here's a quick comparison:");
+Console.WriteLine("");
+Console.WriteLine($"{currentProduct}\t\t{returnPercentage:P2}\t{profit:C2}");
+Console.WriteLine($"{newProduct}\t\t{newReturnPercentage:P2}\t{newProfit:C2}");
+
+
