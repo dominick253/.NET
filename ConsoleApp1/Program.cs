@@ -1550,29 +1550,374 @@
 
 
 
-string name = "Ms. Barros";
-string currentProduct = "Magic Yield";
-string newProduct = "Glorious Future";
-int amountOwnedShares = 2975000;
-decimal returnPercentage = 0.1275m;
-decimal newReturnPercentage = 0.13125m;
-decimal newProfit = 63000000m;
-decimal profit = 55000000m;
+// string name = "Ms. Barros";
+// string currentProduct = "Magic Yield";
+// string newProduct = "Glorious Future";
+// int amountOwnedShares = 2975000;
+// decimal returnPercentage = 0.1275m;
+// decimal newReturnPercentage = 0.13125m;
+// decimal newProfit = 63000000m;
+// decimal profit = 55000000m;
 
-Console.WriteLine($"Dear {name},");
-Console.WriteLine(
-    $"As a customer of our {currentProduct} we are excited to tell you about a new financial product that would dramatically increase your return."
-);
-Console.WriteLine("");
-Console.WriteLine(
-    $"Currently, you own {amountOwnedShares:N2} shares at a return of {returnPercentage:P2}"
-);
-Console.WriteLine("");
-Console.WriteLine($"Our new product, {newProduct} offers a return of {newReturnPercentage:P2}. Given your current volume, your potential profit would be {newProfit:C2}");
-Console.WriteLine("");
-Console.WriteLine("Here's a quick comparison:");
-Console.WriteLine("");
-Console.WriteLine($"{currentProduct}\t\t{returnPercentage:P2}\t{profit:C2}");
-Console.WriteLine($"{newProduct}\t\t{newReturnPercentage:P2}\t{newProfit:C2}");
+// Console.WriteLine($"Dear {name},");
+// Console.WriteLine(
+//     $"As a customer of our {currentProduct} we are excited to tell you about a new financial product that would dramatically increase your return."
+// );
+// Console.WriteLine("");
+// Console.WriteLine(
+//     $"Currently, you own {amountOwnedShares:N2} shares at a return of {returnPercentage:P2}"
+// );
+// Console.WriteLine("");
+// Console.WriteLine($"Our new product, {newProduct} offers a return of {newReturnPercentage:P2}. Given your current volume, your potential profit would be {newProfit:C2}");
+// Console.WriteLine("");
+// Console.WriteLine("Here's a quick comparison:");
+// Console.WriteLine("");
+// Console.WriteLine($"{currentProduct}\t\t{returnPercentage:P2}\t{profit:C2}");
+// Console.WriteLine($"{newProduct}\t\t{newReturnPercentage:P2}\t{newProfit:C2}");
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// string message = "Find what is (inside of the parentheses)";
+
+// int openingPosition = message.IndexOf('(');
+// int closingPosition = message.IndexOf(')');
+
+// Console.WriteLine(openingPosition);
+// Console.WriteLine(closingPosition);
+
+// int length = closingPosition - openingPosition;
+// Console.WriteLine(message.Substring(openingPosition + 1, length - 1));
+
+
+// string openSpan = "<span>";
+// string closeSpan = "</span>";
+
+// string message = "what i sthe value of <span>between the tags</span>";
+
+// int openPosition = message.IndexOf(openSpan);
+// int closePosition = message.IndexOf(closeSpan);
+
+// openPosition += openSpan.Length;
+// int length = closePosition - openPosition;
+
+// Console.WriteLine(message.Substring(openPosition, length));
+
+
+
+
+
+// string message = "(What if) I am (only interested) in the last (set of parentheses)?";
+
+// while (true)
+// {
+//     int openPosition = message.IndexOf('(');
+//     if (openPosition == -1)
+//         break;
+
+//     openPosition++;
+//     int closePosition = message.IndexOf(')');
+//     int length = closePosition - openPosition;
+
+//     Console.WriteLine(message.Substring(openPosition, length));
+
+//     message = message.Substring(closePosition + 1);
+// }
+
+
+
+
+
+
+
+
+
+
+// string message = "Help (find) the {opening symbols}";
+
+// Console.WriteLine($"Searching This Message: {message}");
+
+// char[] openSymbols = {'[', '{', '('};
+
+// int startPosition = 5;
+// int openingPosition = message.IndexOfAny(openSymbols);
+
+// Console.WriteLine($"Found WITHOUT using startPosition: {message.Substring(openingPosition)}");
+
+// openingPosition = message.IndexOfAny(openSymbols, startPosition);
+// Console.WriteLine($"Found WITH using startPosition: {startPosition}: {message.Substring(openingPosition)}");
+
+
+
+
+
+
+
+
+
+
+
+
+// string data = "12345John Smith          5000  3  ";
+
+// string updatedData = data.Remove(5, 20);
+
+// Console.WriteLine(updatedData);
+
+
+// string message = "This--is--ex-amp-le--da-ta";
+
+// message = message.Replace("--", " ");
+// message = message.Replace("-", "");
+
+// Console.WriteLine(message);
+
+
+
+
+
+
+
+
+
+// const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
+
+// string quantity = "";
+// string output = "";
+
+// //find quantity inside of span
+// int spanIndexStart = input.IndexOf("<span>");
+// spanIndexStart += 6;
+// int spanIndexEnd = input.IndexOf("</span>");
+// int spanIndexLength = spanIndexEnd - spanIndexStart;
+
+// quantity = input.Substring(spanIndexStart, spanIndexLength);
+
+// //remove div's
+// int divStartIndex = input.IndexOf("<div>");
+
+// output = input.Remove(divStartIndex, 5);
+
+// int divEndIndex = output.IndexOf("</div>");
+
+// output = output.Remove(divEndIndex, 6);
+
+// //replace trade with reg... obviouslys......
+// output = output.Replace("&trade;", "&reg;");
+
+// Console.WriteLine($"Quantity: {quantity}");
+// Console.WriteLine($"Output: {output}");
+
+
+
+
+
+
+// #1 the ourAnimals array will store the following:
+using System.Runtime.Intrinsics.Arm;
+
+string animalSpecies = "";
+string animalID = "";
+string animalAge = "";
+string animalPhysicalDescription = "";
+string animalPersonalityDescription = "";
+string animalNickname = "";
+string suggestedDonation = "";
+
+decimal decimalDonation = 0.00m;
+bool containsSearchTermBool = false;
+
+// #2 variables that support data entry
+int maxPets = 8;
+string? readResult;
+string menuSelection = "";
+
+string personalityAndDescrition = "";
+
+string[] searchIcons = {".", ",", "..", "..."};
+
+// #3 array used to store runtime data, there is no persisted data
+string[,] ourAnimals = new string[maxPets, 7];
+
+// #4 create sample data ourAnimals array entries
+for (int i = 0; i < maxPets; i++)
+{
+    switch (i)
+    {
+        case 0:
+            animalSpecies = "dog";
+            animalID = "d1";
+            animalAge = "2";
+            animalPhysicalDescription =
+                "medium sized cream colored female golden retriever weighing about 45 pounds. housebroken.";
+            animalPersonalityDescription =
+                "loves to have her belly rubbed and likes to chase her tail. gives lots of kisses.";
+            animalNickname = "lola";
+            suggestedDonation = "100";
+            break;
+
+        case 1:
+            animalSpecies = "dog";
+            animalID = "d2";
+            animalAge = "9";
+            animalPhysicalDescription =
+                "large reddish-brown male golden retriever weighing about 85 pounds. housebroken.";
+            animalPersonalityDescription =
+                "loves to have his ears rubbed when he greets you at the door, or at any time! loves to lean-in and give doggy hugs.";
+            animalNickname = "gus";
+            suggestedDonation = "100";
+
+            break;
+
+        case 2:
+            animalSpecies = "cat";
+            animalID = "c3";
+            animalAge = "1";
+            animalPhysicalDescription =
+                "small white female weighing about 8 pounds. litter box trained.";
+            animalPersonalityDescription = "friendly";
+            animalNickname = "snow";
+            suggestedDonation = "100";
+
+            break;
+
+        case 3:
+            animalSpecies = "cat";
+            animalID = "c4";
+            animalAge = "3";
+            animalPhysicalDescription =
+                "Medium sized, long hair, yellow, female, about 10 pounds. Uses litter box.";
+            animalPersonalityDescription = "A people loving cat that likes to sit on your lap.";
+            animalNickname = "Lion";
+            suggestedDonation = "100";
+
+            break;
+
+        default:
+            animalSpecies = "";
+            animalID = "";
+            animalAge = "";
+            animalPhysicalDescription = "";
+            animalPersonalityDescription = "";
+            animalNickname = "";
+            suggestedDonation = "";
+            break;
+    }
+
+    if (!decimal.TryParse(suggestedDonation, out decimalDonation))
+        decimalDonation = 45.00m;
+
+    ourAnimals[i, 0] = "ID #: " + animalID;
+    ourAnimals[i, 1] = "Species: " + animalSpecies;
+    ourAnimals[i, 2] = "Age: " + animalAge;
+    ourAnimals[i, 3] = "Nickname: " + animalNickname;
+    ourAnimals[i, 4] = "Physical description: " + animalPhysicalDescription;
+    ourAnimals[i, 5] = "Personality: " + animalPersonalityDescription;
+    ourAnimals[i, 6] = $"Suggested Donation: {decimalDonation:C2}";
+}
+
+// #5 display the top-level menu options
+do
+{
+    // NOTE: the Console.Clear method is throwing an exception in debug sessions
+    Console.Clear();
+
+    Console.WriteLine("Welcome to the Contoso PetFriends app. Your main menu options are:");
+    Console.WriteLine(" 1. List all of our current pet information");
+    Console.WriteLine(" 2. Display all dogs with a specified characteristic");
+    Console.WriteLine();
+    Console.WriteLine("Enter your selection number (or type Exit to exit the program)");
+
+    readResult = Console.ReadLine();
+    if (readResult != null)
+        menuSelection = readResult.ToLower();
+
+    // use switch-case to process the selected menu option
+    switch (menuSelection)
+    {
+        case "1":
+            // list all pet info
+            for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i, 0] != "ID #: ")
+                {
+                    Console.WriteLine();
+                    for (int j = 0; j < 7; j++)
+                    {
+                        Console.WriteLine(ourAnimals[i, j]);
+                    }
+                }
+            }
+            Console.WriteLine("\n\rPress the Enter key to continue");
+            readResult = Console.ReadLine();
+
+            break;
+
+        case "2":
+
+            string[] searchTermSplit;
+
+            // Display all dogs with a specified characteristic
+            Console.WriteLine("Enter search term(s) for pet. seperate by \",\"");
+            string searchTerm = Console.ReadLine();
+
+            //reset contains search term to false every time you reenter the #2 option menu
+            containsSearchTermBool = false;
+            if (searchTerm.Trim() != "")
+            {
+                for (int i = 0; i < ourAnimals.GetLength(0); i++)
+                {
+                    if (ourAnimals[i, 0] != "ID #: ")
+                    {
+                        personalityAndDescrition =
+                            ourAnimals[i, 4].Substring(21) + " " + ourAnimals[i, 5].Substring(12);
+
+                        string species = ourAnimals[i, 1].Substring(9);
+                        string name = ourAnimals[i, 3].Substring(10);
+
+                        //split up the search term into an array of search terms.
+                        searchTermSplit = searchTerm.Split(",");
+                        Array.Sort(searchTermSplit);
+
+                        foreach (var term in searchTermSplit)
+                        {
+                            if (personalityAndDescrition.ToLower().Contains(term.ToLower()))
+                            {
+                                Console.WriteLine(
+                                    $"\nOur {species} {name} is a match for your search for {term}!"
+                                );
+                                Console.WriteLine($"{ourAnimals[i, 3]} ({ourAnimals[i, 0]})");
+                                Console.WriteLine(ourAnimals[i, 4]);
+                                Console.WriteLine(ourAnimals[i, 5]);
+
+                                containsSearchTermBool = true;
+                            }
+                        }
+                    }
+                }
+                if (containsSearchTermBool == false)
+                    Console.WriteLine($"\nNo pets match the search term(s) {searchTerm}.");
+            }
+            else if (searchTerm.Trim() == "")
+                Console.WriteLine("No input, Please enter a valid search term.");
+
+            Console.WriteLine("\rPress the Enter key to continue");
+            readResult = Console.ReadLine();
+            break;
+
+        default:
+            break;
+    }
+} while (menuSelection != "exit");
