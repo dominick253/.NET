@@ -2595,6 +2595,145 @@
 
 
 
+// int[] coinArr = { 1, 2 };
+// int[] coinArr2 = { 1, 5 };
+
+
+// int[] TwoCoins(int[] coins, int target)
+// {
+//     if (coins[0] + coins[1] == target)
+//     {
+//         Console.WriteLine($"Coins {coins[0]} and {coins[1]} add up to {target}.");
+//         return coins;
+//     }
+//     else
+//         Console.WriteLine($"Coins {coins[0]} and {coins[1]} do not add up to {target}.");
+//         return [];
+// }
+
+// TwoCoins(coinArr, 3);
+// TwoCoins(coinArr2, 3);
 
 
 
+
+// using System.ComponentModel.Design;
+
+// int rnd = new Random().Next(1, 6);
+// string selection = "";
+// int count = 0;
+// do
+// {
+//     Console.WriteLine("Enter a number from 1 to 6");
+
+//     selection = Console.ReadLine();
+//     count++;
+
+//     if (selection.ToLower() != "exit")
+//     {
+//         int intSelection = Int32.Parse(selection);
+//         if (intSelection == rnd)
+//         {
+//             Console.WriteLine($"You guessed the number {rnd} in {count} trys.");
+//             break;
+//         }
+//         else
+//         {
+//             Console.WriteLine("Guess again!");
+//         }
+//     }
+//     else
+//         break;
+// } while (true);
+
+
+
+
+
+using System;
+
+string[] animals =
+{
+    "alpacas",
+    "capybaras",
+    "chickens",
+    "ducks",
+    "emus",
+    "geese",
+    "goats",
+    "iguanas",
+    "kangaroos",
+    "lemurs",
+    "llamas",
+    "macaws",
+    "ostriches",
+    "pigs",
+    "ponies",
+    "rabbits",
+    "sheep",
+    "tortoises",
+};
+
+string[] ShuffleAnimals(string[] str)
+{
+    string[] result = new string[str.Length];
+    //shuffle the array...
+    for (int i = 0; i < str.Length; i++)
+    {
+        int rnd = new Random().Next(0, str.Length);
+        //if it isn't in the results array add it
+        if (!result.Contains(str[rnd]))
+        {
+            result[i] = str[rnd];
+        }
+        else //if it is back up one spot so it isn't an empty line
+        {
+            i--;
+        }
+    }
+    return result;
+}
+
+//counter to track how many animals have been handed out across all groups
+int count = 0;
+
+void FindAnimalsForGroup(int[] sizeOfGroups, string[] animals)
+{
+    //reset count to 0 every time it is ran to reset to the first animal in the shuffled animal array
+    count = 0;
+    int total = 0;
+    // add up how many total groups of students to use to make the result array the right size
+    for (int i = 0; i < sizeOfGroups.Length; i++)
+    {
+        total += sizeOfGroups[i];
+    }
+
+    string[] result = new string[total];
+    //go through results and the pre shuffled animal into the result array
+    for (int i = 0; i < result.Length; i++)
+    {
+        result[i] = animals[i];
+    } // print out all of the animals for each school group
+    for (int j = 0; j < sizeOfGroups.Length; j++)
+    {
+        PrintAnimalsForEachSchool($"{j + 1}", sizeOfGroups[j], result);
+    }
+}
+
+void PrintAnimalsForEachSchool(string name, int groupSize, string[] result)
+{
+    Console.WriteLine($"Animals for school {name}:");
+    for (int i = 1; i <= groupSize; i++)
+    {
+        Console.WriteLine($"Group {i} from school {name} get's {result[count]}");
+        count++;
+    }
+}
+
+int schoolA = 6;
+int schoolB = 3;
+int schoolC = 2;
+int[] sizeOfGroups = { schoolA, schoolB, schoolC };
+
+string[] shuffledAnimals = ShuffleAnimals(animals);
+FindAnimalsForGroup(sizeOfGroups, shuffledAnimals);
