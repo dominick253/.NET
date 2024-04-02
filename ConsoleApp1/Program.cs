@@ -2650,90 +2650,938 @@
 
 
 
-using System;
+// using System;
 
-string[] animals =
+// string[] animals =
+// {
+//     "alpacas",
+//     "capybaras",
+//     "chickens",
+//     "ducks",
+//     "emus",
+//     "geese",
+//     "goats",
+//     "iguanas",
+//     "kangaroos",
+//     "lemurs",
+//     "llamas",
+//     "macaws",
+//     "ostriches",
+//     "pigs",
+//     "ponies",
+//     "rabbits",
+//     "sheep",
+//     "tortoises",
+// };
+
+// string[] ShuffleAnimals(string[] str)
+// {
+//     string[] result = new string[str.Length];
+//     //shuffle the array...
+//     for (int i = 0; i < str.Length; i++)
+//     {
+//         int rnd = new Random().Next(0, str.Length);
+//         //if it isn't in the results array add it
+//         if (!result.Contains(str[rnd]))
+//         {
+//             result[i] = str[rnd];
+//         }
+//         else //if it is back up one spot so it isn't an empty line
+//         {
+//             i--;
+//         }
+//     }
+//     return result;
+// }
+
+// //counter to track how many animals have been handed out across all groups
+// int count = 0;
+
+// void FindAnimalsForGroup(int[] sizeOfGroups, string[] animals)
+// {
+//     //reset count to 0 every time it is ran to reset to the first animal in the shuffled animal array
+//     count = 0;
+//     int total = 0;
+//     // add up how many total groups of students to use to make the result array the right size
+//     for (int i = 0; i < sizeOfGroups.Length; i++)
+//     {
+//         total += sizeOfGroups[i];
+//     }
+
+//     string[] result = new string[total];
+//     //go through results and the pre shuffled animal into the result array
+//     for (int i = 0; i < result.Length; i++)
+//     {
+//         result[i] = animals[i];
+//     } // print out all of the animals for each school group
+//     for (int j = 0; j < sizeOfGroups.Length; j++)
+//     {
+//         PrintAnimalsForEachSchool($"{j + 1}", sizeOfGroups[j], result);
+//     }
+// }
+
+// void PrintAnimalsForEachSchool(string name, int groupSize, string[] result)
+// {
+//     Console.WriteLine($"Animals for school {name}:");
+//     for (int i = 1; i <= groupSize; i++)
+//     {
+//         Console.WriteLine($"Group {i} from school {name} get's {result[count]}");
+//         count++;
+//     }
+// }
+
+// int schoolA = 6;
+// int schoolB = 3;
+// int schoolC = 2;
+// int[] sizeOfGroups = { schoolA, schoolB, schoolC };
+
+// string[] shuffledAnimals = ShuffleAnimals(animals);
+// FindAnimalsForGroup(sizeOfGroups, shuffledAnimals);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// using System;
+
+// Random random = new Random();
+// Console.CursorVisible = false;
+// int height = Console.WindowHeight - 1;
+// int width = Console.WindowWidth - 5;
+// bool shouldExit = false;
+
+// // Console position of the player
+// int playerX = 0;
+// int playerY = 0;
+
+// // Console position of the food
+// int foodX = 0;
+// int foodY = 0;
+
+// // Available player and food strings
+// string[] states = { "('-')", "(^-^)", "(X_X)" };
+// string[] foods = { "@@@@@", "$$$$$", "#####" };
+
+// // Current player string displayed in the Console
+// string player = states[0];
+
+// // Index of the current food
+// int food = 0;
+// InitializeGame();
+// while (!shouldExit)
+// {
+//     Move();
+//     TerminalResized();
+// }
+
+// // Returns true if the Terminal was resized
+// bool TerminalResized()
+// {
+//     if (height != Console.WindowHeight - 1 || width != Console.WindowWidth - 5)
+//     {
+//         shouldExit = true;
+//         Console.WriteLine("Console was resized. Program exititing. ");
+//         { }
+//     }
+//     return height != Console.WindowHeight - 1 || width != Console.WindowWidth - 5;
+// }
+
+// // Displays random food at a random location
+// int ShowFood()
+// {
+//     // Update food to a random index
+//     food = random.Next(0, foods.Length);
+
+//     // Update food position to a random location
+//     foodX = random.Next(0, width - player.Length);
+//     foodY = random.Next(0, height - 1);
+
+//     // Display the food at the location
+//     Console.SetCursorPosition(foodX, foodY);
+//     Console.Write(foods[food]);
+//     return food;
+// }
+
+// bool FoodEaten()
+// {
+//     if (playerX == foodX && playerY == foodY)
+//     {
+//       int food = ShowFood();
+
+//         if (foods[food] == "#####")
+//         {
+//             FreezePlayer();
+//         }
+//         ChangePlayer();
+//         return true;
+//     }
+//     else
+//         return false;
+// }
+
+// // Changes the player to match the food consumed
+// void ChangePlayer()
+// {
+//     player = states[food];
+//     Console.SetCursorPosition(playerX, playerY);
+//     Console.Write(player);
+// }
+
+// // Temporarily stops the player from moving
+// void FreezePlayer()
+// {
+//     System.Threading.Thread.Sleep(1000);
+//     player = states[0];
+// }
+
+// // Reads directional input from the Console and moves the player
+// void Move()
+// {
+//     int lastX = playerX;
+//     int lastY = playerY;
+
+//     switch (Console.ReadKey(true).Key)
+//     {
+//         case ConsoleKey.UpArrow:
+//             playerY--;
+//             break;
+//         case ConsoleKey.DownArrow:
+//             playerY++;
+//             break;
+//         case ConsoleKey.LeftArrow:
+//             playerX--;
+//             break;
+//         case ConsoleKey.RightArrow:
+//             playerX++;
+//             break;
+//         case ConsoleKey.Escape:
+//             shouldExit = true;
+//             break;
+//     }
+
+//     // Clear the characters at the previous position
+//     Console.SetCursorPosition(lastX, lastY);
+//     for (int i = 0; i < player.Length; i++)
+//     {
+//         Console.Write(" ");
+//     }
+
+//     // Keep player position within the bounds of the Terminal window
+//     playerX = (playerX < 0) ? 0 : (playerX >= width ? width : playerX);
+//     playerY = (playerY < 0) ? 0 : (playerY >= height ? height : playerY);
+
+//     // Draw the player at the new location
+//     Console.SetCursorPosition(playerX, playerY);
+//     Console.Write(player);
+//     FoodEaten();
+// }
+
+// // Clears the console, displays the food and player
+// void InitializeGame()
+// {
+//     Console.Clear();
+//     ShowFood();
+//     Console.SetCursorPosition(0, 0);
+//     Console.Write(player);
+// }
+
+
+
+
+
+
+
+
+// string result = "";
+// do
+// {
+//     Console.WriteLine("Say Hello, if you don't you'll regret it!");
+//     result = Console.ReadLine();
+
+//     if (result.ToLower() == "hello")
+//     {
+//         Console.WriteLine(result);
+//     }
+//     else
+//     {
+//         Console.WriteLine(
+//             "Well fuck you then! If you can't even say hello that's pretty rude I think!"
+//         );
+//     }
+// } while (result.ToLower() != "exit");
+
+// for (int i = 0; i < 100; i++) {
+//     Console.WriteLine(i);
+//  }
+
+
+
+
+
+// int x = 5;
+
+// x = ChangeValue(x);
+
+// Console.WriteLine(x);
+
+// int ChangeValue(int n)
+// {
+//     return n = 10;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+// try
+// {
+//     Console.WriteLine("Try and run this!");
+// }
+// catch
+// {
+//     Console.WriteLine("This is how you do it rookie!");
+// }
+// finally
+// {
+//     Console.WriteLine("Finally...");
+// }
+
+
+
+// double float1 = 3000.0;
+// double float2 = 0.0;
+// int number1 = 3000;
+// int number2 = 0;
+
+// try
+// {
+// Console.WriteLine(float1/float2);
+// Console.WriteLine(number1/number2);
+// }
+// catch
+// {
+// Console.WriteLine("Exit Program");
+// }
+
+
+
+
+
+
+
+
+// Process1();
+// Console.WriteLine("Exit program");
+
+// static void Process1()
+// {
+//     try
+//     {
+//         WriteMessage();
+//     }
+//     catch (Exception ex)
+//     {
+//         Console.WriteLine($"An exception has occurred in process 1\n with Exeception {ex.Message}");
+//     }
+// }
+// static void WriteMessage()
+// {
+//     double float1 = 3000.0;
+//     double float2 = 0.0;
+//     int number1 = 3000;
+//     int number2 = 0;
+//     byte smallNumber;
+
+//     Console.WriteLine(float1 / float2);
+//     Console.WriteLine(number1 / number2);
+//     checked
+//     {
+//         try
+//         {
+//             smallNumber = (byte)number1;
+//         }
+//         catch (OverflowException ex)
+//         {
+//             Console.WriteLine($"Exception caught in WriteMessage: {ex.Message}");
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+
+
+// // inputValues is used to store numeric values entered by a user
+// string[] inputValues = new string[] { "three", "9999999999", "0", "2" };
+
+// foreach (string inputValue in inputValues)
+// {
+//     int numValue = 0;
+//     try
+//     {
+//         numValue = int.Parse(inputValue);
+//         Console.WriteLine($"New num value is {numValue}");
+//     }
+//     catch (FormatException)
+//     {
+//         Console.WriteLine("Invalid readResult. Please enter a valid number.");
+//     }
+//     catch (OverflowException)
+//     {
+//         Console.WriteLine("The number you entered is too large or too small.");
+//     }
+//     catch (Exception ex)
+//     {
+//         Console.WriteLine(ex.Message);
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+// checked
+// {
+//     try
+//     {
+//         int num1 = int.MaxValue;
+//         int num2 = int.MaxValue;
+//         int result = num1 + num2;
+//         Console.WriteLine("Result: " + result);
+//     }
+//     catch (OverflowException ex)
+//     {
+//         Console.WriteLine(
+//             "Error: The number is too large to be represented as an integer." + ex.Message
+//         );
+//     }
+// }
+// try
+// {
+//     string str = null;
+//     int length = str.Length;
+//     Console.WriteLine("String Length: " + length);
+// }
+// catch (NullReferenceException ex)
+// {
+//     Console.WriteLine("Error: The reference is null." + ex.Message);
+// }
+// try
+// {
+//     int[] numbers = new int[5];
+//     numbers[5] = 10;
+//     Console.WriteLine("Number at index 5: " + numbers[5]);
+// }
+// catch (IndexOutOfRangeException ex)
+// {
+//     Console.WriteLine("Error: Index out of range." + ex.Message);
+// }
+
+// try
+// {
+//     int num3 = 10;
+//     int num4 = 0;
+//     int result2 = num3 / num4;
+//     Console.WriteLine("Result: " + result2);
+// }
+// catch (DivideByZeroException ex)
+// {
+//     Console.WriteLine("Error: Cannot divide by zero." + ex.Message);
+// }
+
+// Console.WriteLine("Exiting program.");
+
+
+
+
+// while (true)
+// {
+//     int lowerBound = 0;
+//     int upperBound = 0;
+//     decimal averageValue = 0;
+
+//     try
+//     {
+//         Console.Write("Enter the lower bound: ");
+//         lowerBound = int.Parse(Console.ReadLine());
+//     }
+//     catch (FormatException ex)
+//     {
+//         Console.WriteLine("Invalid input. Please enter a valid number.");
+//     }
+
+//     try
+//     {
+//         Console.Write("Enter the upper bound: ");
+//         upperBound = int.Parse(Console.ReadLine());
+//         if (lowerBound > upperBound)
+//         {
+//             throw new ArgumentOutOfRangeException("Error: Lower bound is less than upper bound.");
+//         }
+
+//     }
+//     catch (ArgumentOutOfRangeException ex)
+//     {
+//         Console.WriteLine("Invalid input. Please enter a valid number.", ex.Message);
+//     }
+
+//     // Calculate the sum of the even numbers between the bounds
+//     try
+//     {
+//         averageValue = AverageOfEvenNumbers(lowerBound, upperBound);
+//     }
+//     catch (Exception ex)
+//     {
+//         Console.WriteLine(ex.Message);
+//     }
+
+//     // Display the value returned by AverageOfEvenNumbers in the console
+//     Console.WriteLine(
+//         $"The average of even numbers between {lowerBound} and {upperBound} is {averageValue}."
+//     );
+
+//     Console.WriteLine("Enter 'exit' to quit the program.");
+//     if (Console.ReadLine().ToLower() == "exit")
+//         break;
+// }
+
+// // Wait for user input
+
+// static decimal AverageOfEvenNumbers(int lowerBound, int upperBound)
+// {
+//     int sum = 0;
+//     int count = 0;
+//     decimal average = 0;
+
+//     for (int i = lowerBound; i <= upperBound; i++)
+//     {
+//         if (i % 2 == 0)
+//         {
+//             sum += i;
+//             count++;
+//         }
+//     }
+//     try
+//     {
+//         average = (decimal)sum / count;
+//     }
+//     catch (DivideByZeroException ex)
+//     {
+//         throw new Exception("Error: Cannot divide by zero." + ex.Message);
+//     }
+//     return average;
+// }
+
+
+
+
+
+
+
+
+
+
+// string[][] userEnteredValues =
+// [
+//     ["1", "2", "3"],
+//     ["1", "two", "3"],
+//     ["0", "1", "2"]
+// ];
+
+// string overallStatusMessage;
+
+// overallStatusMessage = Workflow1(userEnteredValues);
+
+// if (overallStatusMessage == "operating procedure complete")
+// {
+//     Console.WriteLine("'Workflow1' completed successfully.");
+// }
+// else
+// {
+//     Console.WriteLine("An error occurred during 'Workflow1'.");
+//     Console.WriteLine(overallStatusMessage);
+// }
+
+// static string Workflow1(string[][] userEnteredValues)
+// {
+//     string operationStatusMessage = "good";
+//     string processStatusMessage;
+//     foreach (string[] userEntries in userEnteredValues)
+//     {
+//         processStatusMessage = Process1(userEntries);
+
+//         if (processStatusMessage == "process complete")
+//         {
+//             Console.WriteLine("'Process1' completed successfully.");
+//             Console.WriteLine();
+//         }
+//         else
+//         {
+//             Console.WriteLine("'Process1' encountered an issue, process aborted.");
+//             Console.WriteLine(processStatusMessage);
+//             Console.WriteLine();
+//             operationStatusMessage = processStatusMessage;
+//         }
+//     }
+
+//     if (operationStatusMessage == "good")
+//     {
+//         operationStatusMessage = "operating procedure complete";
+//     }
+
+//     return operationStatusMessage;
+// }
+
+// static string Process1(String[] userEntries)
+// {
+//     string processStatus = "clean";
+//     string returnMessage = "";
+//     int valueEntered;
+
+//     foreach (string userValue in userEntries)
+//     {
+//         try
+//         {
+//             bool integerFormat = int.TryParse(userValue, out valueEntered);
+//             int calculatedValue = 4 / valueEntered;
+//         }
+//         catch (FormatException ex)
+//         {
+//             returnMessage = "Invalid data. User input values must be valid integers.";
+//             processStatus = "value error";
+//         }
+//         catch (DivideByZeroException ex)
+//         {
+//             returnMessage = "Cannot divide by zero.";
+//             processStatus = "divide error";
+//         }
+//         catch (Exception ex)
+//         {
+//             returnMessage = "An error occurred during the process.";
+//             processStatus = "exception error";
+//         }
+
+//         if (processStatus == "clean")
+//         {
+//             returnMessage = "process complete";
+//         }
+//         else if (processStatus == "value error")
+//         {
+//             returnMessage = "Invalid data. User Data Must Be Valid Integers";
+//         }
+//         else if (processStatus == "divide error")
+//         {
+//             returnMessage = "Invalid data. User input values must not be non-zero.";
+//         }
+//         else if (processStatus == "exception error")
+//         {
+//             returnMessage = "Invalid data. An error occurred during the process.";
+//         }
+//         else
+//         {
+//             returnMessage = "process incomplete";
+//         }
+//     }
+
+//     return returnMessage;
+// }
+
+
+
+// You're part of a team that's working on retail-support applications. The code that you're developing, the MakeChange method, manages the money till for a cash register application. Your application must meet the following specifications:
+
+// A C# console application that simulates daily purchase transactions.
+
+// The application calls the MakeChange method to manage the money till during transactions. MakeChange accepts cash payments and returns change.
+
+// The calling application independently verifies the till balance after each transaction.
+
+// A try-catch pattern is implemented to manage exceptions as follows:
+
+// Exceptions are used to report and handle any issue that prevents a transaction from completing successfully.
+// Exceptions are created and thrown in the MakeChange method.
+// Exceptions are caught and handled in the calling application.
+
+// using System;
+// using System.Linq.Expressions;
+
+// class Program
+// {
+//     static void Main(string[] args)
+//     {
+//         Console.WriteLine(MakeChange(10.00m, 5.00m));
+//     }
+
+//     static string MakeChange(decimal purchaseAmount, decimal cashPaid)
+//     {
+//         decimal change = cashPaid - purchaseAmount;
+
+//         if (change < 0)
+//         {
+//             throw new ArgumentException("Insufficient cash paid.");
+//         }
+//         else if (change == 0)
+//         {
+//             return "No change required.";
+//         }
+
+//         // Calculate the number of each denomination in the change
+//         int twenties = (int)(change / 20);
+//         change %= 20;
+
+//         int tens = (int)(change / 10);
+//         change %= 10;
+
+//         int fives = (int)(change / 5);
+//         change %= 5;
+
+//         int ones = (int)change;
+
+//         decimal cents = change - ones;
+
+//         // Return the change breakdown as a string
+//         //add cents to the change
+
+//         return $"Twenties: {twenties}, Tens: {tens}, Fives: {fives}, Ones: {ones} and Cents: {cents}";
+//     }
+// }
+
+/*
+This application manages transactions at a store check-out line. The
+check-out line has a cash register, and the register has a cash till
+that is prepared with a number of bills each morning. The till includes
+bills of four denominations: $1, $5, $10, and $20. The till is used
+to provide the customer with change during the transaction. The item
+cost is a randomly generated number between 2 and 49. The customer
+offers payment based on an algorithm that determines a number of bills
+in each denomination.
+
+Each day, the cash till is loaded at the start of the day. As transactions
+occur, the cash till is managed in a method named MakeChange (customer
+payments go in and the change returned to the customer comes out). A
+separate "safety check" calculation that's used to verify the amount of
+money in the till is performed in the "main program". This safety check
+is used to ensure that logic in the MakeChange method is working as
+expected.
+*/
+
+string? readResult = null;
+bool useTestData = false;
+
+Console.Clear();
+
+int[] cashTill = new int[] { 0, 0, 0, 0 };
+int registerCheckTillTotal = 0;
+
+// registerDailyStartingCash: $1 x 50, $5 x 20, $10 x 10, $20 x 5 => ($350 total)
+int[,] registerDailyStartingCash = new int[,]
 {
-    "alpacas",
-    "capybaras",
-    "chickens",
-    "ducks",
-    "emus",
-    "geese",
-    "goats",
-    "iguanas",
-    "kangaroos",
-    "lemurs",
-    "llamas",
-    "macaws",
-    "ostriches",
-    "pigs",
-    "ponies",
-    "rabbits",
-    "sheep",
-    "tortoises",
+    { 1, 50 },
+    { 5, 20 },
+    { 10, 10 },
+    { 20, 5 }
 };
 
-string[] ShuffleAnimals(string[] str)
+int[] testData = new int[] { 6, 10, 17, 20, 31, 36, 40, 41 };
+int testCounter = 0;
+
+LoadTillEachMorning(registerDailyStartingCash, cashTill);
+
+registerCheckTillTotal =
+    registerDailyStartingCash[0, 0] * registerDailyStartingCash[0, 1]
+    + registerDailyStartingCash[1, 0] * registerDailyStartingCash[1, 1]
+    + registerDailyStartingCash[2, 0] * registerDailyStartingCash[2, 1]
+    + registerDailyStartingCash[3, 0] * registerDailyStartingCash[3, 1];
+
+// display the number of bills of each denomination currently in the till
+LogTillStatus(cashTill);
+
+// display a message showing the amount of cash in the till
+Console.WriteLine(TillAmountSummary(cashTill));
+
+// display the expected registerDailyStartingCash total
+Console.WriteLine($"Expected till value: {registerCheckTillTotal}\n\r");
+
+var valueGenerator = new Random((int)DateTime.Now.Ticks);
+
+int transactions = 10;
+
+if (useTestData)
 {
-    string[] result = new string[str.Length];
-    //shuffle the array...
-    for (int i = 0; i < str.Length; i++)
-    {
-        int rnd = new Random().Next(0, str.Length);
-        //if it isn't in the results array add it
-        if (!result.Contains(str[rnd]))
-        {
-            result[i] = str[rnd];
-        }
-        else //if it is back up one spot so it isn't an empty line
-        {
-            i--;
-        }
-    }
-    return result;
+    transactions = testData.Length;
 }
 
-//counter to track how many animals have been handed out across all groups
-int count = 0;
-
-void FindAnimalsForGroup(int[] sizeOfGroups, string[] animals)
+while (transactions > 0)
 {
-    //reset count to 0 every time it is ran to reset to the first animal in the shuffled animal array
-    count = 0;
+    transactions -= 1;
+    int itemCost = valueGenerator.Next(2, 20);
+
+    if (useTestData)
+    {
+        itemCost = testData[testCounter];
+        testCounter += 1;
+    }
+
+    int paymentOnes = itemCost % 2; // value is 1 when itemCost is odd, value is 0 when itemCost is even
+    int paymentFives = (itemCost % 10 > 7) ? 1 : 0; // value is 1 when itemCost ends with 8 or 9, otherwise value is 0
+    int paymentTens = (itemCost % 20 > 13) ? 1 : 0; // value is 1 when 13 < itemCost < 20 OR 33 < itemCost < 40, otherwise value is 0
+    int paymentTwenties = (itemCost < 20) ? 1 : 2; // value is 1 when itemCost < 20, otherwise value is 2
+
+    // display messages describing the current transaction
+    Console.WriteLine($"Customer is making a ${itemCost} purchase");
+    Console.WriteLine($"\t Using {paymentTwenties} twenty dollar bills");
+    Console.WriteLine($"\t Using {paymentTens} ten dollar bills");
+    Console.WriteLine($"\t Using {paymentFives} five dollar bills");
+    Console.WriteLine($"\t Using {paymentOnes} one dollar bills");
+
+    // MakeChange manages the transaction and updates the till
+    string transactionMessage = MakeChange(
+        itemCost,
+        cashTill,
+        paymentTwenties,
+        paymentTens,
+        paymentFives,
+        paymentOnes
+    );
+
+    // Backup Calculation - each transaction adds current "itemCost" to the till
+    if (transactionMessage == "transaction succeeded")
+    {
+        Console.WriteLine($"Transaction successfully completed.");
+        registerCheckTillTotal += itemCost;
+    }
+    else
+    {
+        Console.WriteLine($"Transaction unsuccessful: {transactionMessage}");
+    }
+
+    Console.WriteLine(TillAmountSummary(cashTill));
+    Console.WriteLine($"Expected till value: {registerCheckTillTotal}\n\r");
+    Console.WriteLine();
+}
+
+Console.WriteLine("Press the Enter key to exit");
+do
+{
+    readResult = Console.ReadLine();
+} while (readResult == null);
+
+static void LoadTillEachMorning(int[,] registerDailyStartingCash, int[] cashTill)
+{
+    //load ones
+    cashTill[0] = registerDailyStartingCash[0, 1];
+    //load fives
+    cashTill[1] = registerDailyStartingCash[1, 1];
+    //load tens
+    cashTill[2] = registerDailyStartingCash[2, 1];
+    //load twenties
+    cashTill[3] = registerDailyStartingCash[3, 1];
+}
+
+// LogTillStatus(cashTill);
+
+static void LogTillStatus(int[] cashTill)
+{
+    Console.WriteLine("Till Status Right Now: ");
+    Console.WriteLine($"1's: {cashTill[0]}$");
+    Console.WriteLine($"5's: {cashTill[1] * 5}$");
+    Console.WriteLine($"10's: {cashTill[2] * 10}$");
+    Console.WriteLine($"20's: {cashTill[3] * 20}$");
+}
+
+// TillAmountSummary(cashTill)
+
+static string TillAmountSummary(int[] cashTill)
+{
     int total = 0;
-    // add up how many total groups of students to use to make the result array the right size
-    for (int i = 0; i < sizeOfGroups.Length; i++)
-    {
-        total += sizeOfGroups[i];
-    }
-
-    string[] result = new string[total];
-    //go through results and the pre shuffled animal into the result array
-    for (int i = 0; i < result.Length; i++)
-    {
-        result[i] = animals[i];
-    } // print out all of the animals for each school group
-    for (int j = 0; j < sizeOfGroups.Length; j++)
-    {
-        PrintAnimalsForEachSchool($"{j + 1}", sizeOfGroups[j], result);
-    }
+    total += cashTill[0];
+    total += cashTill[1] * 5;
+    total += cashTill[2] * 10;
+    total += cashTill[3] * 20;
+    return "The Till has $" + total;
 }
-
-void PrintAnimalsForEachSchool(string name, int groupSize, string[] result)
+static string MakeChange(
+    int cost,
+    int[] cashTill,
+    int twenties,
+    int tens = 0,
+    int fives = 0,
+    int ones = 0
+)
 {
-    Console.WriteLine($"Animals for school {name}:");
-    for (int i = 1; i <= groupSize; i++)
+    string transactionMessage = "";
+
+    cashTill[3] += twenties;
+    cashTill[2] += tens;
+    cashTill[1] += fives;
+    cashTill[0] += ones;
+
+    int amountPaid = twenties * 20 + tens * 10 + fives * 5 + ones;
+    int changeNeeded = amountPaid - cost;
+
+    if (changeNeeded < 0)
+        transactionMessage = "Not enough money provided.";
+
+    Console.WriteLine("Cashier Returns:");
+
+    while ((changeNeeded > 19) && (cashTill[3] > 0))
     {
-        Console.WriteLine($"Group {i} from school {name} get's {result[count]}");
-        count++;
+        cashTill[3]--;
+        changeNeeded -= 20;
+        Console.WriteLine("\t A twenty");
     }
+
+    while ((changeNeeded > 9) && (cashTill[2] > 0))
+    {
+        cashTill[2]--;
+        changeNeeded -= 10;
+        Console.WriteLine("\t A ten");
+    }
+
+    while ((changeNeeded > 4) && (cashTill[1] > 0))
+    {
+        cashTill[2]--;
+        changeNeeded -= 5;
+        Console.WriteLine("\t A five");
+    }
+
+    while ((changeNeeded > 0) && (cashTill[0] > 0))
+    {
+        cashTill[0]--;
+        changeNeeded--;
+        Console.WriteLine("\t A one");
+    }
+
+    if (changeNeeded > 0)
+        transactionMessage = "Can't make change. Do you have anything smaller?";
+
+    if (transactionMessage == "")
+        transactionMessage = "transaction succeeded";
+
+    return transactionMessage;
 }
-
-int schoolA = 6;
-int schoolB = 3;
-int schoolC = 2;
-int[] sizeOfGroups = { schoolA, schoolB, schoolC };
-
-string[] shuffledAnimals = ShuffleAnimals(animals);
-FindAnimalsForGroup(sizeOfGroups, shuffledAnimals);
